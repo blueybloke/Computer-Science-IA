@@ -14,64 +14,76 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem fx:id="saveImageMenuItem" mnemonicParsing="false" onAction="#onSave" style="color: #f3f5f5;" text="Save Image" />
-            <SeparatorMenuItem mnemonicParsing="false" style="color: #f3f5f5;" />
-            <MenuItem fx:id="quitMenuItem" mnemonicParsing="false" onAction="#onQuit" style="color: #f3f5f5;" text="Quit" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
-         <children>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane
+        prefHeight="400.0"
+        prefWidth="640.0"
+        xmlns="http://javafx.com/javafx/10.0.1"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="controllers.mainController">
+    <top>
+        <VBox>
+            <MenuBar VBox.vgrow="NEVER">
+                <Menu mnemonicParsing="false" text="File">
+                    <MenuItem mnemonicParsing="false" onAction="#onSave" style="color: #f3f5f5;" text="Save Image"/>
+                    <SeparatorMenuItem mnemonicParsing="false" style="color: #f3f5f5;"/>
+                    <MenuItem mnemonicParsing="false" onAction="#onQuit" style="color: #f3f5f5;" text="Quit"/>
+                </Menu>
+            </MenuBar>
+
             <ToolBar prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-              <items>
-                  <ColorPicker fx:id="colorPicker" editable="true" style="-fx-background-color: #A2A9B6;" />
-                  <Label fx:id="ipAddressLbl" prefHeight="20.0" style="-fx-background-color: #A2A9B6; -fx-background-radius: 3px;" text="Host's IP: 0.0.0.0">
-                     <font>
-                        <Font name="Leelawadee UI" size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="turnLbl" layoutX="147.0" layoutY="13.0" prefHeight="20.0" style="-fx-background-color: #A2A9B6; -fx-background-radius: 3px;" text="Turn: Player 1 (YOU)">
-                     <font>
-                        <Font name="Leelawadee UI" size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="statusLbl" layoutX="254.0" layoutY="13.0" prefHeight="20.0" style="-fx-background-color: #A2A9B6; -fx-background-radius: 3px;" text="Status: waiting to start...">
-                     <font>
-                        <Font name="Leelawadee UI" size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <CheckBox fx:id="readyCheckBox" mnemonicParsing="false" style="-fx-background-color: #A2A9B6; -fx-background-radius: 5px;" text="Ready to play?">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </CheckBox>
-              </items>
+                <ColorPicker fx:id="colorPicker" editable="true" style="-fx-background-color: #A2A9B6;"/>
+                <Label fx:id="ipAddressLbl" prefHeight="20.0"
+                   style="-fx-background-color: #A2A9B6; -fx-background-radius: 3px;" text="Host's IP: 0.0.0.0">
+                    <font>
+                        <Font name="Leelawadee UI" size="13.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0"/>
+                    </padding>
+                </Label>
+                <Label fx:id="turnLbl" layoutX="147.0" layoutY="13.0" prefHeight="20.0"
+                   style="-fx-background-color: #A2A9B6; -fx-background-radius: 3px;" text="Turn: Player 1 (YOU)">
+                    <font>
+                        <Font name="Leelawadee UI" size="13.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0"/>
+                    </padding>
+                </Label>
+                <Label fx:id="statusLbl" layoutX="254.0" layoutY="13.0" prefHeight="20.0"
+                   style="-fx-background-color: #A2A9B6; -fx-background-radius: 3px;"
+                   text="Status: waiting to start...">
+                    <font>
+                        <Font name="Leelawadee UI" size="13.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0"/>
+                    </padding>
+                </Label>
+                <CheckBox fx:id="readyCheckBox" mnemonicParsing="false"
+                      style="-fx-background-color: #A2A9B6; -fx-background-radius: 5px;" text="Ready to play?">
+                    <padding>
+                        <Insets left="5.0" right="5.0"/>
+                    </padding>
+                    <font>
+                        <Font size="13.0"/>
+                    </font>
+                </CheckBox>
             </ToolBar>
-         </children>
-    </AnchorPane>
-      <AnchorPane fx:id="canvasAnchor">
-         <children>
-            <Canvas fx:id="canvas" height="500.0" onMouseClicked="#canvasClicked" onMouseDragged="#canvasMouseDragged" onMouseEntered="#canvasEntered" onMouseExited="#canvasExited" onMouseReleased="#canvasMouseReleased" width="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
-  </children>
-</VBox>
+        </VBox>
+    </top>
+
+    <center>
+        <Canvas fx:id="canvas"
+                height="800.0"
+                width="800.0"
+                style="-fx-background-color: #77ff4d"
+                onMouseDragged="#canvasMouseDragged"
+                onMouseEntered="#canvasEntered"
+                onMouseExited="#canvasExited"
+                onMouseReleased="#canvasMouseReleased"
+
+        />
+    </center>
+</BorderPane>
