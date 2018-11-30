@@ -2,21 +2,21 @@ package controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-
-import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * A class to define the view controller for the main view. Used to handle actions given by the user.
  */
-public class mainController {
+public class mainController implements Initializable {
 
     @FXML
     public ColorPicker colorPicker;
@@ -31,17 +31,34 @@ public class mainController {
     @FXML
     public Canvas canvas;
 
-    public void initalize() {
+    //Mouse pos
+    double mouseX;
+    double mouseY;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //Get the graphicsContext of the canvas and store mouse x and y
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
 
-        canvas.setOnMouseDragged(mouseEvent -> {
-            System.out.println("Dragged.");
-            double mouseX = mouseEvent.getX();
-            double mouseY = mouseEvent.getY();
+        //Handle mouse being dragged and create a stroke.
+        canvas.setOnMouseDragged(e -> {
+            //System.out.println("dragged");
 
-            graphicsContext.setFill(colorPicker.getValue());
-            graphicsContext.fillOval(mouseX,mouseY,100,100);
+            mouseX = e.getX();
+            mouseY = e.getY();
+
+            graphicsContext.setStroke(colorPicker.getValue());
+            graphicsContext.lineTo(mouseX, mouseY);
+            graphicsContext.stroke();
         });
+
+        //Handle mousedrag being released to end the stroke and clear mouse x/y
+        canvas.setOnMousePressed(e -> {
+            System.out.println("pressed");
+            graphicsContext.beginPath();
+        });
+
     }
 
     /**

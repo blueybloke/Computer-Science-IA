@@ -15,6 +15,7 @@ public class PaintGame extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+        System.out.println("App start!");
         Parent root = FXMLLoader.load(getClass().getResource("/views/main.fxml"));
         primaryStage.setTitle("Login");
         //primaryStage.initStyle(StageStyle.UNDECORATED);
