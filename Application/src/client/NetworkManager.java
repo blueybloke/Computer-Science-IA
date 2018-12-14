@@ -1,6 +1,5 @@
-package models;
+package client;
 
-import javax.sound.sampled.Port;
 import java.net.Socket;
 
 public class NetworkManager {

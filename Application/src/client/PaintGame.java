@@ -1,11 +1,10 @@
-package models;
+package client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * Entry point of the application. Begins the application and opens the server browser.
