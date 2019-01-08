@@ -18,7 +18,7 @@
         style="-fx-background-color: #363F4A;"
         xmlns="http://javafx.com/javafx/10.0.1"
         xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="controllers.loginController"
+        fx:controller="client.loginController"
 >
   <children>
     <AnchorPane

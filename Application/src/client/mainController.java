@@ -1,4 +1,4 @@
-package controllers;
+package client;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -41,23 +41,7 @@ public class mainController implements Initializable {
         //Get the graphicsContext of the canvas and store mouse x and y
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
 
-        //Handle mouse being dragged and create a stroke.
-        canvas.setOnMouseDragged(e -> {
-            //System.out.println("dragged");
 
-            mouseX = e.getX();
-            mouseY = e.getY();
-
-            graphicsContext.setStroke(colorPicker.getValue());
-            graphicsContext.lineTo(mouseX, mouseY);
-            graphicsContext.stroke();
-        });
-
-        //Handle mousedrag being released to end the stroke and clear mouse x/y
-        canvas.setOnMousePressed(e -> {
-            System.out.println("pressed");
-            graphicsContext.beginPath();
-        });
 
     }
 
@@ -87,5 +71,6 @@ public class mainController implements Initializable {
     }
 
     public void canvasMouseReleased(MouseEvent mouseEvent) {
+
     }
 }
