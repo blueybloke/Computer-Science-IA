@@ -1,5 +1,6 @@
 package client;
 
+import com.sun.tools.doclets.formats.html.PackageIndexFrameWriter;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import java.util.ResourceBundle;
 /**
  * A class to define the view controller for the main view. Used to handle actions given by the user.
  */
-public class mainController implements Initializable {
+public class mainController implements Initializable , Runnable {
 
     @FXML
     public ColorPicker colorPicker;
@@ -31,35 +32,81 @@ public class mainController implements Initializable {
     @FXML
     public Canvas canvas;
 
-    //Mouse pos
+    //Singleton variable
+    public mainController mc;
+
+    //Local variables
     double mouseX;
     double mouseY;
+    Thread t;
+    GraphicsContext graphicsContext;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        graphicsContext = canvas.getGraphicsContext2D();
+        this.start();
+    }
 
-        //Get the graphicsContext of the canvas and store mouse x and y
-        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
+    public void start() {
+        t = new Thread(this, "ClientManager");
+        System.out.println("Starting thread with ID: "+t.getId());
+        t.start();
+    }
 
-
-
+    public void run() {
+        initalizePen(); // Begin the Pen
     }
 
     /**
-     * View controller event method. Defines behaviour of the save button.
-     * @param actionEvent
+     * Used to bind drawing.
      */
-    public void onSave(ActionEvent actionEvent) {
+    public void initalizePen() {
+
+        //Set variables for color etc.
+        graphicsContext.setStroke(colorPicker.getValue());
+        graphicsContext.lineTo(mouseX, mouseY);
+        graphicsContext.stroke();
+
+        //Bind the mousedrag being released to end the stroke and clear mouse x/y
+        canvas.setOnMousePressed(e -> {
+            if (true) {
+                System.out.println("pressed!");
+                graphicsContext.beginPath();
+            }
+        });
+
+        //Handle mouse being dragged and create a stroke.
+        canvas.setOnMouseDragged(e -> {
+
+            //Update the mouse position.
+            mouseX = e.getX();
+            mouseY = e.getY();
+
+            //Update the color
+            graphicsContext.setStroke(colorPicker.getValue());
+
+            //Draw the line if it is the client's turn
+            if (true) {
+                graphicsContext.lineTo(mouseX, mouseY);
+                graphicsContext.stroke();
+            }
+        });
     }
 
     /**
-     * View controller event method. Defines behaviour of the quit button.
-     * @param actionEvent
+     * A helper method that converts a graphicsContext to an ImageIO image, and then into a byte array to be serialized
+     * Over the network.
      */
-    public void onQuit(ActionEvent actionEvent) {
-        Platform.exit();
+    public byte[] graphicsContextToByteArray() {
+        return null;
     }
 
+    /**
+     * A helper method that places an image onto the graphics context after converting it from a byte array.
+     */
+    public void setGraphicsContextFromByteArray() {
+
+    }
 
     public void canvasMouseDragged(MouseEvent mouseEvent) {
     }
@@ -67,10 +114,16 @@ public class mainController implements Initializable {
     public void canvasEntered(MouseEvent mouseEvent) {
     }
 
+    public void canvasMouseReleased(MouseEvent mouseEvent) {
+    }
+
     public void canvasExited(MouseEvent mouseEvent) {
     }
 
-    public void canvasMouseReleased(MouseEvent mouseEvent) {
+    public void onSave(ActionEvent actionEvent) {
+    }
 
+    public void onQuit(ActionEvent actionEvent) {
+        Platform.exit();
     }
 }

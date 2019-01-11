@@ -11,15 +11,22 @@ import javafx.stage.Stage;
  */
 public class PaintGame extends Application {
 
+    public ClientManager clientManager;
+    static PaintGame mainInstance = new PaintGame();
+
+    public static PaintGame getInstance() {
+        return mainInstance;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        System.out.println("App start!");
         Parent root = FXMLLoader.load(getClass().getResource("/views/main.fxml"));
-        primaryStage.setTitle("Login");
-        //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        clientManager = new ClientManager();
+        clientManager.start();
     }
 
     public static void main(String[] args) {
