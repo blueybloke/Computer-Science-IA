@@ -2,6 +2,7 @@ package client;
 
 import com.sun.tools.doclets.formats.html.PackageIndexFrameWriter;
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +11,12 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+
+import javax.imageio.ImageIO;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,7 +45,7 @@ public class mainController implements Initializable , Runnable {
     double mouseX;
     double mouseY;
     Thread t;
-    GraphicsContext graphicsContext;
+    static GraphicsContext graphicsContext;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,14 +103,21 @@ public class mainController implements Initializable , Runnable {
      * A helper method that converts a graphicsContext to an ImageIO image, and then into a byte array to be serialized
      * Over the network.
      */
-    public byte[] graphicsContextToByteArray() {
-        return null;
+    public static byte[] graphicsContextToByteArray() throws IOException {
+
+        //Get a snapshot of the graphics context
+        Image snappedImage = graphicsContext.getCanvas().snapshot(null,null);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(SwingFXUtils.fromFXImage(snappedImage, null), "jpg", baos);
+        baos.flush();
+        return baos.toByteArray();
     }
+
 
     /**
      * A helper method that places an image onto the graphics context after converting it from a byte array.
      */
-    public void setGraphicsContextFromByteArray() {
+    public static void setGraphicsContextFromByteArray() {
 
     }
 
