@@ -27,7 +27,7 @@ public class ClientManager implements Runnable {
      */
     public void start() {
         t = new Thread(this, "ClientManager");
-        System.out.println("Starting thread with ID: "+t.getId());
+        System.out.println("Starting ClientManager thread with ID: "+t.getId());
         t.start();
     }
 

@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import server.ServerManager;
+import sun.tools.serialver.SerialVer;
 
 /**
  * Entry point of the application. Begins the application and opens the server browser.
@@ -27,6 +29,8 @@ public class PaintGame extends Application {
 
         clientManager = new ClientManager();
         clientManager.start();
+        ServerManager sm = new ServerManager();
+        sm.startServer();
     }
 
     public static void main(String[] args) {
