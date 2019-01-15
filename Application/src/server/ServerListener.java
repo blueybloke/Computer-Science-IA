@@ -1,9 +1,5 @@
 package server;
 
-import client.mainController;
-import com.sun.tools.internal.ws.wsdl.document.Input;
-import com.sun.tools.internal.ws.wsdl.document.Output;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -15,6 +11,7 @@ import java.net.Socket;
 public class ServerListener extends Thread {
 
     private int SERVER_PORT;
+    private Socket clientSocket;
 
     public ServerListener(int port) {
         SERVER_PORT = port;
@@ -34,8 +31,8 @@ public class ServerListener extends Thread {
             System.out.println("Created server socket on port " + serverSocket.getLocalPort());
 
             //Attempt a connection with a client
-            Socket clientSocket = serverSocket.accept();             //THIS LINE WILL BLOCK UNTIL CLIENT CONNECTS
-            System.out.println("Connection made with " +
+            clientSocket = serverSocket.accept();             //THIS LINE WILL BLOCK UNTIL CLIENT CONNECTS
+            System.out.println("Connection opened on " +
                     serverSocket.getInetAddress() +
                     " on port "+serverSocket.getLocalPort());
 
@@ -43,21 +40,13 @@ public class ServerListener extends Thread {
             OutputStream out = clientSocket.getOutputStream();
 
             // TODO: Refactor the input stream so that input is handled by the ClientListener.
-            InputStream in  = clientSocket.getInputStream();
-
 
             while(true) {
-                sendScreenUpdate(out);
-                System.out.println("Sent graphics context " + out.toString());
+                //TODO: Refactor the ServerListener loop
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    // TODO: refactor this method so that screen updates are only sent by the client.
-    public static void sendScreenUpdate(OutputStream out) throws IOException {
-        out.write(mainController.graphicsContextToByteArray());
     }
 
 

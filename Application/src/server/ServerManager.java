@@ -1,34 +1,44 @@
 package server;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
 
-public class ServerManager {
+public class ServerManager extends Thread {
 
     // Variables
-    Thread serverThread;
+    Thread serverListener;
     GameState gs = GameState.WAITING_TO_START;
-    Client currentTurn;
+    ClientModel currentTurn;
 
     //Standard port number for the game.
-    int portNumber = 45665;
+    int defaultPortNumber = 45665;
 
-
-    public ServerManager() {
-
+    /**
+     * Initalizes the server manager on the default port.
+     */
+    public ServerManager() throws IOException {
         //Create the server thread object that manages connections and transferring data.
-        serverThread = new ServerListener(portNumber);
+        serverListener = new ServerListener(defaultPortNumber);
     }
 
     /**
-     * Start the server process,
+     * Initalizes the server manager on the passed port.
+     * @param portNumber
+     */
+    public ServerManager(int portNumber) throws IOException {
+        //Create the server thread object that manages connections and transferring data.
+        serverListener = new ServerListener(portNumber);
+    }
+
+    /**
+     * Start the server networking component.
      */
     public void startServer() {
-        serverThread.start();
+        serverListener.start();
+    }
+
+    @Override
+    public void run() {
+
     }
 }
 

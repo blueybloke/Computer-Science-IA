@@ -1,11 +1,11 @@
 package server;
 
-public class Client {
+public class ClientModel {
 
     private boolean isConnected = false;
     private boolean isReady;
 
-    public Client() {
+    public ClientModel() {
 
     }
 }
