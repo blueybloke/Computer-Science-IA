@@ -7,21 +7,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import server.ServerManager;
+
+import java.io.IOException;
 import java.util.List;
-import java.security.InvalidParameterException;
 
 /**
  * Entry point of the application. Begins the application and opens the server browser.
  */
 public class PaintGame extends Application {
 
+    static Stage pStage;
     ClientManager clientManager;
     ServerManager serverManager;
-    static PaintGame mainInstance = new PaintGame();
 
-    //PaintGame is set up as a singleton should it need to be referenced.
-    public static PaintGame getInstance() {
-        return mainInstance;
+    /**
+     * A getter for the primary stage.
+     * @return
+     */
+    public static Stage getpStage() {
+        return pStage;
     }
 
     /**
@@ -32,10 +36,8 @@ public class PaintGame extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        //Start the view
-        Parent root = FXMLLoader.load(getClass().getResource("/views/main.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        //Store the primary stage
+        pStage = primaryStage;
 
         /**
          * This chunk of code is used to determine how to start the program.
@@ -49,29 +51,47 @@ public class PaintGame extends Application {
                         serverManager = new ServerManager(Integer.parseInt(args.get(1)));
                         serverManager.startServer();
 
+
                         //Start the Client
-                        clientManager = new ClientManager();
-                        clientManager.start(); break;
+                        clientManager = new ClientManager("localhost",Integer.parseInt(args.get(1)));
+                        clientManager.start();
+                        break;
                     } catch (IndexOutOfBoundsException e) { //Try to start as a server with default port.
                         System.out.println("No port entered, starting with default. ");
                         //Start the server
                         serverManager = new ServerManager();
                         serverManager.startServer();
 
+
                         //Start the Client
                         clientManager = new ClientManager();
-                        clientManager.start(); break;
+                        clientManager.start();
+                        break;
                     }
 
                     case "ClientMode": try { //Try to start as a client with a custom port.
                         //Start the Client
                         clientManager = new ClientManager("localhost", Integer.parseInt(args.get(1)));
-                        clientManager.start(); break;
+                        clientManager.start();
+                        break;
                     } catch (IndexOutOfBoundsException e) { //Try to start as a client with default port
                         System.out.println("No port entered, starting with default. ");
                         //Start the Client
                         clientManager = new ClientManager();
-                        clientManager.start(); break;
+                        clientManager.start();
+                        break;
+                    }
+                    //Start in headless mode
+                    case "HeadlessMode": try {
+                        System.out.println("Starting in headless mode with custom port");
+                        serverManager = new ServerManager(Integer.parseInt(args.get(1)));
+                        serverManager.startServer();
+                        break;
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("Starting in headless mode with default port");
+                        serverManager = new ServerManager();
+                        serverManager.startServer();
+                        break;
                     }
                 }
             }

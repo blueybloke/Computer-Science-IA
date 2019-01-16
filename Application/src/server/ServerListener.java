@@ -1,5 +1,7 @@
 package server;
 
+import com.sun.security.ntlm.Client;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,6 +14,8 @@ public class ServerListener extends Thread {
 
     private int SERVER_PORT;
     private Socket clientSocket;
+    ClientModel localClient;
+    ClientModel remoteClient;
 
     public ServerListener(int port) {
         SERVER_PORT = port;
@@ -27,23 +31,17 @@ public class ServerListener extends Thread {
                     " is running");
 
             //Create a new ServerSocket
-            ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
+            ServerSocket serverSocket = new ServerSocket(SERVER_PORT); //Create the server socket
+            serverSocket.setSoTimeout(0); //Sets connection timeout to infinity
             System.out.println("Created server socket on port " + serverSocket.getLocalPort());
 
-            //Attempt a connection with a client
-            clientSocket = serverSocket.accept();             //THIS LINE WILL BLOCK UNTIL CLIENT CONNECTS
-            System.out.println("Connection opened on " +
-                    serverSocket.getInetAddress() +
-                    " on port "+serverSocket.getLocalPort());
+            //Open two client connections on seperate threads. TODO: Refactor next line so localClient won't start in headless mode.
+            localClient = new ClientModel(serverSocket);
+            localClient.start();
+            remoteClient = new ClientModel(serverSocket);
+            remoteClient.start();
 
-            //Forwards output from the OutputStream out to the socket's outgoing connection.
-            OutputStream out = clientSocket.getOutputStream();
 
-            // TODO: Refactor the input stream so that input is handled by the ClientListener.
-
-            while(true) {
-                //TODO: Refactor the ServerListener loop
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }

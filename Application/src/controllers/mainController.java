@@ -1,5 +1,7 @@
 package controllers;
 
+import client.ClientListener;
+import client.ClientManager;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -12,8 +14,10 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import server.ClientModel;
 
 import javax.imageio.ImageIO;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -22,44 +26,31 @@ import java.util.ResourceBundle;
 /**
  * A class to define the view controller for the main view. Used to handle actions given by the user.
  */
-public class mainController implements Initializable , Runnable {
+public class mainController implements Initializable {
 
     @FXML
-    public ColorPicker colorPicker;
+    ColorPicker colorPicker;
     @FXML
-    public Label ipAddressLbl;
+    Label ipAddressLbl;
     @FXML
-    public Label turnLbl;
+    Label turnLbl;
     @FXML
-    public Label statusLbl;
+    Label statusLbl;
     @FXML
-    public CheckBox readyCheckBox;
+    CheckBox readyCheckBox;
     @FXML
-    public Canvas canvas;
-
-    //Singleton variable
-    public mainController mc;
+    Canvas canvas;
 
     //Local variables
+    byte[] currentSnapshot = new byte[0];
     double mouseX;
     double mouseY;
-    Thread t;
-    static GraphicsContext graphicsContext;
+    GraphicsContext graphicsContext; //Set to be static since we only want one graphics context per client
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         graphicsContext = canvas.getGraphicsContext2D();
-        this.start();
-    }
-
-    public void start() {
-        t = new Thread(this, "ClientManager");
-        System.out.println("Starting thread with ID: "+t.getId());
-        t.start();
-    }
-
-    public void run() {
-        initalizePen(); // Begin the Pen
+        initalizePen();
     }
 
     /**
@@ -80,7 +71,7 @@ public class mainController implements Initializable , Runnable {
             }
         });
 
-        //Handle mouse being dragged and create a stroke.
+        //Handle mouse being dragged and create a stroke
         canvas.setOnMouseDragged(e -> {
 
             //Update the mouse position.
@@ -96,28 +87,50 @@ public class mainController implements Initializable , Runnable {
                 graphicsContext.stroke();
             }
         });
+
+        //Handle updating the graphics context when mouse is released
+        canvas.setOnMouseReleased(e -> {
+            try {
+                currentSnapshot = this.graphicsContextToByteArray();
+                System.out.println("Mouse Release Callback reached");
+                System.out.println("Current snapshot size: " + currentSnapshot.length);
+                ClientListener.sendScreenUpdate(ClientListener.getOut(),this);
+            } catch (IOException e1) {
+                System.out.println("Failed to snapshot graphics context.");
+            }
+        });
     }
+
+    /**
+     * A getter for the current byte[] representing the graphicscontext, updated each mouse release
+     * @return
+     */
+    public byte[] getCurrentSnapshot() {
+        return currentSnapshot;
+    }
+
 
     /**
      * A helper method that converts a graphicsContext to an ImageIO image, and then into a byte array to be serialized
      * Over the network.
      */
-    public static byte[] graphicsContextToByteArray() throws IOException {
-
+    public byte[] graphicsContextToByteArray() throws IOException {
         //Get a snapshot of the graphics context
         Image snappedImage = graphicsContext.getCanvas().snapshot(null,null);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(SwingFXUtils.fromFXImage(snappedImage, null), "jpg", baos);
         baos.flush();
+        System.out.println("Pre-networked message length: " + baos.toByteArray().length);
         return baos.toByteArray();
     }
-
 
     /**
      * A helper method that places an image onto the graphics context after converting it from a byte array.
      */
-    public static void setGraphicsContextFromByteArray() {
-
+    public void setGraphicsContextFromByteArray(byte[] message) {
+        //Parse the image from the given byte[] and draw it to the graphics context
+        Image img = new Image(new ByteArrayInputStream(message));
+        graphicsContext.drawImage(img, 0, 0);
     }
 
     public void canvasMouseDragged(MouseEvent mouseEvent) {
