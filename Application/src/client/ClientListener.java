@@ -77,8 +77,8 @@ public class ClientListener extends Thread {
             socket = AttemptConnection(host, portNumber);
 
             //Start input and output streams, and bind them to the socket
-            out = new DataOutputStream(socket.getOutputStream());
             in = new DataInputStream(socket.getInputStream());
+            out = new DataOutputStream(socket.getOutputStream());
             //Update loop TODO: These are both looping correctly and don't block. mainController is also sending the right byte array through, although stopping quickly.
             while(true) {
                 recieveScreenUpdate(in);
@@ -105,7 +105,7 @@ public class ClientListener extends Thread {
 
         byte[] message = mc.getCurrentSnapshot();
         System.out.println("Message sent with length: " + message.length);
-        out.writeInt(message.length);
+        out.write(message.length);
         out.write(message);
         out.flush();
     }
@@ -117,17 +117,21 @@ public class ClientListener extends Thread {
      * @throws IOException Might throw an IOException because it is pulling from a DataInputStream.
      */
     public void recieveScreenUpdate(DataInputStream in) throws IOException {
-        //if (in.available()>0) { //TODO: Figure out why there are never any
-            //System.out.println(socket.getInputStream().read());
-            int messageLength = in.readInt(); //Gets the length of the incoming screen. This line blocks until an int (4 bytes) is read. TODO: It never seems to read that int right now...
+
+        if (in.available() > 0) { //TODO: No bytes are coming in so the contents of this if statement won't run.
+            int messageLength = in.readInt(); //Gets the length of the incoming screen. This line blocks until an int (4 bytes) is read.
             System.out.println("Message recieved with length: " + messageLength);
+
+
             //If the message is longer than 0 bytes, parse it and tell the mainController to write it to the GraphicsContext
             if (messageLength > 0) {
+                System.out.println("Beggining message processing...");
                 byte[] message = new byte[messageLength];
                 in.readFully(message, 0, message.length);
+                System.out.println("Message read.");
                 mc.setGraphicsContextFromByteArray(message);
                 System.out.println("Message processed!");
             }
-        //}
+        }
     }
 }
