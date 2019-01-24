@@ -20,9 +20,8 @@ public class ClientListener extends Thread {
      * Used when starting the client as a server.
      * @param p Port to start the client listener with.
      * @param loader The FXMLLoader used to access the mainController
-     * @throws IOException Thrown if there is an issue opening the socket.
      */
-    public ClientListener(int p, FXMLLoader loader) throws IOException {
+    public ClientListener(int p, FXMLLoader loader){
         host = "localhost";
         portNumber = p;
         mc = loader.getController();
@@ -33,9 +32,8 @@ public class ClientListener extends Thread {
      * @param h Host to connect to, often localhost.
      * @param p Used to pass a specific port. Usually the default, 45665.
      * @param loader The FXMLLoader used to access the mainController
-     * @throws IOException Thrown if there is an issue opening the socket.
      */
-    public ClientListener(String h, int p, FXMLLoader loader) throws IOException {
+    public ClientListener(String h, int p, FXMLLoader loader) {
         host = h;
         portNumber = p;
         mc = loader.getController();
@@ -105,7 +103,7 @@ public class ClientListener extends Thread {
 
         byte[] message = mc.getCurrentSnapshot();
         System.out.println("Message sent with length: " + message.length);
-        out.write(message.length);
+        out.writeInt(message.length);
         out.write(message);
         out.flush();
     }
@@ -126,10 +124,11 @@ public class ClientListener extends Thread {
             //If the message is longer than 0 bytes, parse it and tell the mainController to write it to the GraphicsContext
             if (messageLength > 0) {
                 System.out.println("Beggining message processing...");
-                byte[] message = new byte[messageLength];
-                in.readFully(message, 0, message.length);
+                byte[] buffer = new byte[messageLength];
+                System.out.println("Recieving message array built.");
+                in.readNBytes(buffer, 0, messageLength);
                 System.out.println("Message read.");
-                mc.setGraphicsContextFromByteArray(message);
+                mc.setGraphicsContextFromByteArray(buffer);
                 System.out.println("Message processed!");
             }
         }

@@ -118,9 +118,12 @@ public class mainController implements Initializable {
         //Get a snapshot of the graphics context
         Image snappedImage = graphicsContext.getCanvas().snapshot(null,null);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(SwingFXUtils.fromFXImage(snappedImage, null), "jpg", baos);
+        ImageIO.write(SwingFXUtils.fromFXImage(snappedImage, null), "png", baos);
         baos.flush();
-        System.out.println("Pre-networked message length: " + baos.toByteArray().length);
+        System.out.println("Pre-networked message length: " + baos.toByteArray().length+"\n");
+        for (int i = 0; i < baos.toByteArray().length; i++) {
+            System.out.print(", "+baos.toByteArray()[i]+", ");
+        }
         return baos.toByteArray();
     }
 
@@ -130,7 +133,7 @@ public class mainController implements Initializable {
     public void setGraphicsContextFromByteArray(byte[] message) {
         //Parse the image from the given byte[] and draw it to the graphics context
         Image img = new Image(new ByteArrayInputStream(message));
-        graphicsContext.drawImage(img, 0, 0);
+        graphicsContext.drawImage(img, 0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
     public void canvasMouseDragged(MouseEvent mouseEvent) {
