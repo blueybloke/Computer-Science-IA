@@ -1,28 +1,24 @@
 package server;
 
-import java.io.IOException;
 
 public class ServerManager extends Thread {
 
     // Variables
     private final Thread serverListener;
-    GameState gs = GameState.WAITING_TO_START;
-    ClientModel currentTurn;
-
-    //Standard port number for the game.
-    private final int defaultPortNumber = 45665;
 
     /**
-     * Initalizes the server manager on the default port.
+     * Initializes the server manager on the default port.
      */
     public ServerManager() {
         //Create the server thread object that manages connections and transferring data.
+        //Standard port number for the game.
+        int defaultPortNumber = 45665;
         serverListener = new ServerListener(defaultPortNumber);
     }
 
     /**
-     * Initalizes the server manager on the passed port.
-     * @param portNumber
+     * Initializes the server manager on the passed port.
+     * @param portNumber The port to start the server on.
      */
     public ServerManager(int portNumber) {
         //Create the server thread object that manages connections and transferring data.

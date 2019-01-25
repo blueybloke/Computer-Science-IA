@@ -8,42 +8,42 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * A class to define the main gameplay inputs the player can perform such as drawing onto the stage.
+ * A class to define the main logic for the client side.
+ * Can be used to add functionality.
  */
 class ClientManager extends Thread {
 
-    //Initalization related variables
+    //Initialization related variables
     private Thread clientListener;
-    private final int defaultPortNumber = 45665;
     private FXMLLoader loader;
-    private Stage primaryStage;
 
     /**
      * Create a new ClientManager on the localhost with the default port. Used when creating a new server.
      */
     public ClientManager() throws IOException {
-        primaryStage = PaintGame.getpStage();
+        Stage primaryStage = PaintGame.getPStage();
         loader = startGUI(primaryStage);
+        int defaultPortNumber = 45665;
         clientListener = new ClientListener(defaultPortNumber, loader);
         clientListener.start();
     }
 
     /**
      * Create a new ClientManager on a set port and host.
-     * @param host
-     * @param portNumber
-     * @throws IOException
+     * @param host Specifies the host to connect to.
+     * @param portNumber Specifies the port to connect via.
+     * @throws IOException Will throw an IOException if it fails to connect.
      */
     public ClientManager(String host, int portNumber) throws IOException {
-        loader = startGUI(PaintGame.getpStage());
+        loader = startGUI(PaintGame.getPStage());
         clientListener = new ClientListener(host, portNumber, loader);
         clientListener.start();
     }
 
     /**
      * Used to load the GUI.
-     * @param primaryStage
-     * @throws IOException
+     * @param primaryStage The stage to be loaded.
+     * @throws IOException Will throw an IOException if something goes wrong.
      */
     private FXMLLoader startGUI(Stage primaryStage) throws IOException {
         //Start the view

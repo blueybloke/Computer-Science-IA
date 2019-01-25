@@ -13,14 +13,12 @@ import java.util.List;
 public class PaintGame extends Application {
 
     private static Stage pStage;
-    private ClientManager clientManager;
-    private ServerManager serverManager;
 
     /**
      * A getter for the primary stage.
-     * @return
+     * @return Returns a Stage object used to access the mainController.
      */
-    public static Stage getpStage() {
+    public static Stage getPStage() {
         return pStage;
     }
 
@@ -41,6 +39,8 @@ public class PaintGame extends Application {
         List<String> args = getParameters().getRaw();
         if (args.size() > 0) {
             args.size();
+            ServerManager serverManager;
+            ClientManager clientManager;
             switch (args.get(0)) { //Check whether in Server or Client mode
                 case "ServerMode": try { //Try to start as a Server with a custom port.
                     //Start the server

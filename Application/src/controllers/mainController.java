@@ -48,20 +48,20 @@ public class mainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         graphicsContext = canvas.getGraphicsContext2D();
-        initalizePen();
+        initializePen();
     }
 
     /**
      * Used to bind drawing.
      */
-    private void initalizePen() {
+    private void initializePen() {
 
         //Set variables for color etc.
         graphicsContext.setStroke(colorPicker.getValue());
         graphicsContext.lineTo(mouseX, mouseY);
         graphicsContext.stroke();
 
-        //Bind the mousedrag being released to end the stroke and clear mouse x/y
+        //Bind the mouse-drag being released to end the stroke and clear mouse x/y
         canvas.setOnMousePressed(e -> {
             System.out.println("pressed!");
             graphicsContext.beginPath();
@@ -96,8 +96,8 @@ public class mainController implements Initializable {
     }
 
     /**
-     * A getter for the current byte[] representing the graphicscontext, updated each mouse release
-     * @return
+     * A getter for the current byte[] representing the graphicsContext, updated each mouse release.
+     * @return Returns a byte[] representing the current snapshot taken from the canvas.
      */
     public byte[] getCurrentSnapshot() {
         return currentSnapshot;

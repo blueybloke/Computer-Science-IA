@@ -12,20 +12,19 @@ class ClientModel extends Thread {
     /**
      * A class that is used to represent a single client and manage its connection.
      * @param sock Client socket to be connected via.
-     * @throws IOException
+     * @throws IOException Will throw an IOException if something goes wrong.
      */
     public ClientModel(Socket sock) throws IOException {
-        Socket socket = sock;
 
         //Connection succeeded!
         System.out.println("Server-side connection opened successfully on " +
-                socket.getInetAddress() +
-                " on port " + socket.getLocalPort() +
-                " with " + socket.getRemoteSocketAddress()+". Running on Thread "+this.getId());
+                sock.getInetAddress() +
+                " on port " + sock.getLocalPort() +
+                " with " + sock.getRemoteSocketAddress()+". Running on Thread "+this.getId());
 
         //Open streams to transfer data to clients
-        in = new DataInputStream(socket.getInputStream());
-        out = new DataOutputStream(socket.getOutputStream());
+        in = new DataInputStream(sock.getInputStream());
+        out = new DataOutputStream(sock.getOutputStream());
 
         //Start thread
         this.start();

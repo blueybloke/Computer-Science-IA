@@ -9,10 +9,8 @@ import java.net.Socket;
 @SuppressWarnings("InfiniteLoopStatement")
 public class ClientListener extends Thread {
 
-    private Socket socket;
     private static DataOutputStream out;
-    private DataInputStream in;
-    private String host;
+    private final String host;
     private final int portNumber;
     private final mainController mc;
 
@@ -50,8 +48,8 @@ public class ClientListener extends Thread {
 
     /**
      * A method used to attempt a connection to a host. Will block until connection is made.
-     * @param host
-     * @param portNumber
+     * @param host The host used to connect to.
+     * @param portNumber The port to connect via.
      * @return Returns a socket to be used when fixing the input and output streams.
      * @throws IOException Thrown if there is an issue opening the socket.
      */
@@ -73,10 +71,10 @@ public class ClientListener extends Thread {
 
             System.out.println("Starting ClientListener thread on "+this.getId());
 
-            socket = AttemptConnection(host, portNumber);
+            Socket socket = AttemptConnection(host, portNumber);
 
             //Start input and output streams, and bind them to the socket
-            in = new DataInputStream(socket.getInputStream());
+            DataInputStream in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
             //Update loop
             while(true) {
