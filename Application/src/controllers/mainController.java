@@ -1,7 +1,6 @@
 package controllers;
 
 import client.ClientListener;
-import client.ClientManager;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -14,7 +13,6 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import server.ClientModel;
 
 import javax.imageio.ImageIO;
 import java.io.ByteArrayInputStream;
@@ -42,10 +40,10 @@ public class mainController implements Initializable {
     Canvas canvas;
 
     //Local variables
-    byte[] currentSnapshot = new byte[0];
-    double mouseX;
-    double mouseY;
-    GraphicsContext graphicsContext; //Set to be static since we only want one graphics context per client
+    private byte[] currentSnapshot = new byte[0];
+    private double mouseX;
+    private double mouseY;
+    private GraphicsContext graphicsContext; //Set to be static since we only want one graphics context per client
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,7 +54,7 @@ public class mainController implements Initializable {
     /**
      * Used to bind drawing.
      */
-    public void initalizePen() {
+    private void initalizePen() {
 
         //Set variables for color etc.
         graphicsContext.setStroke(colorPicker.getValue());
@@ -65,10 +63,8 @@ public class mainController implements Initializable {
 
         //Bind the mousedrag being released to end the stroke and clear mouse x/y
         canvas.setOnMousePressed(e -> {
-            if (true) {
-                System.out.println("pressed!");
-                graphicsContext.beginPath();
-            }
+            System.out.println("pressed!");
+            graphicsContext.beginPath();
         });
 
         //Handle mouse being dragged and create a stroke
@@ -82,10 +78,8 @@ public class mainController implements Initializable {
             graphicsContext.setStroke(colorPicker.getValue());
 
             //Draw the line if it is the client's turn
-            if (true) {
-                graphicsContext.lineTo(mouseX, mouseY);
-                graphicsContext.stroke();
-            }
+            graphicsContext.lineTo(mouseX, mouseY);
+            graphicsContext.stroke();
         });
 
         //Handle updating the graphics context when mouse is released
@@ -114,7 +108,7 @@ public class mainController implements Initializable {
      * A helper method that converts a graphicsContext to an ImageIO image, and then into a byte array to be serialized
      * Over the network.
      */
-    public byte[] graphicsContextToByteArray() throws IOException {
+    private byte[] graphicsContextToByteArray() throws IOException {
         //Get a snapshot of the graphics context
         Image snappedImage = graphicsContext.getCanvas().snapshot(null,null);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

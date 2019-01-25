@@ -10,13 +10,13 @@ import java.io.IOException;
 /**
  * A class to define the main gameplay inputs the player can perform such as drawing onto the stage.
  */
-public class ClientManager extends Thread {
+class ClientManager extends Thread {
 
     //Initalization related variables
-    Thread clientListener;
-    int defaultPortNumber = 45665;
-    FXMLLoader loader;
-    Stage primaryStage;
+    private Thread clientListener;
+    private final int defaultPortNumber = 45665;
+    private FXMLLoader loader;
+    private Stage primaryStage;
 
     /**
      * Create a new ClientManager on the localhost with the default port. Used when creating a new server.
@@ -45,7 +45,7 @@ public class ClientManager extends Thread {
      * @param primaryStage
      * @throws IOException
      */
-    public FXMLLoader startGUI(Stage primaryStage) throws IOException {
+    private FXMLLoader startGUI(Stage primaryStage) throws IOException {
         //Start the view
         FXMLLoader l = new FXMLLoader(getClass().getResource("/views/main.fxml"));
         Parent root = l.load();

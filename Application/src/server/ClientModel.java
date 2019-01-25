@@ -1,67 +1,71 @@
 package server;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ClientModel extends Thread {
+@SuppressWarnings("InfiniteLoopStatement")
+class ClientModel extends Thread {
 
-    Socket clientSocket;
-    ServerSocket serverSocket;
-    DataInputStream in;
-    DataOutputStream out;
-    public ClientModel(ServerSocket sock) {
-        serverSocket = sock;
-    }
+    private DataInputStream in;
+    private DataOutputStream out;
 
     /**
-     * Attempts to connect with a client. Will loop until this is done successfully, or five attempts are unsuccessful.
+     * A class that is used to represent a single client and manage its connection.
+     * @param sock Client socket to be connected via.
+     * @throws IOException
      */
-    private void AttemptConnection() {
+    public ClientModel(Socket sock) throws IOException {
+        Socket socket = sock;
 
-        try {
-            //TODO: As it currently is, the clients are each only receiving data from themselves and sending it back to themselves.
-            //TODO: Ensure that data is being synced to ALL clients. Manage out from ServerListener?
-            //Attempt a connection with a client
-            clientSocket = serverSocket.accept();   //THIS LINE WILL BLOCK UNTIL CLIENT CONNECTS
-            System.out.println("Server-side connection opened successfully on " +
-                    serverSocket.getInetAddress() +
-                    " on port " + serverSocket.getLocalPort() +
-                    " with " + clientSocket.getRemoteSocketAddress()+". Running on Thread "+this.getId());
+        //Connection succeeded!
+        System.out.println("Server-side connection opened successfully on " +
+                socket.getInetAddress() +
+                " on port " + socket.getLocalPort() +
+                " with " + socket.getRemoteSocketAddress()+". Running on Thread "+this.getId());
 
-            //Open streams to transfer data to clients
-            in = new DataInputStream(clientSocket.getInputStream());
-            out = new DataOutputStream(clientSocket.getOutputStream());
+        //Open streams to transfer data to clients
+        in = new DataInputStream(socket.getInputStream());
+        out = new DataOutputStream(socket.getOutputStream());
 
-        } catch (IOException e) {
-            System.out.println("Error! Failed to connect to client! Trying again...");
-            this.AttemptConnection(); //Try again.
-        }
-
-
-    }
-
-    //Input stream getter
-    public DataInputStream getIn() {
-        return in;
-    }
-
-    //Output stream getter
-    public DataOutputStream getOut() {
-        return out;
-    }
-
-    boolean isConnected() {
-        if (clientSocket != null) {
-            return clientSocket.isConnected();
-        }
-        else {
-            return false;
-        }
+        //Start thread
+        this.start();
     }
 
     @Override
     public void run() {
-        AttemptConnection();
+
+        //Begin the connection loop
+        //noinspection InfiniteLoopStatement,InfiniteLoopStatement
+        while (true) try {
+            //If there is input coming through
+            if (in.available() > 0) {
+                //Store the input stream's contents in an ArrayList
+                System.out.println("Bytes found, beginning redirection!");
+                int bufferLength = in.readInt();
+
+                byte[] buffer = new byte[bufferLength];
+                in.readNBytes(buffer,0, bufferLength);
+                System.out.println("Buffer stored!");
+
+                //Iterate over all the output streams(Clients) that need writing to.
+                for (DataOutputStream output : ServerListener.outputs) {
+                    System.out.println("Re-directing...");
+                    //Redirect it!
+                    output.writeInt(bufferLength);
+                    output.write(buffer);
+                    //Flush the output stream
+                    output.flush();
+                }
+                System.out.println("Redirect complete!");
+            }
+        } catch (IOException e) {
+            System.out.println("Error in data forwarding: \n" + e);
+        }
+
     }
+
+    public DataOutputStream getOut() {
+        return out;
+    }
+
 }

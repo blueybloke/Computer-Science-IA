@@ -6,14 +6,15 @@ import javafx.fxml.FXMLLoader;
 import java.io.*;
 import java.net.Socket;
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class ClientListener extends Thread {
 
-    Socket socket;
-    static DataOutputStream out;
-    DataInputStream in;
-    String host = "localhost";
-    int portNumber;
-    mainController mc;
+    private Socket socket;
+    private static DataOutputStream out;
+    private DataInputStream in;
+    private String host;
+    private final int portNumber;
+    private final mainController mc;
 
 
     /**
@@ -54,7 +55,7 @@ public class ClientListener extends Thread {
      * @return Returns a socket to be used when fixing the input and output streams.
      * @throws IOException Thrown if there is an issue opening the socket.
      */
-    Socket AttemptConnection (String host, int portNumber) throws IOException {
+    private Socket AttemptConnection(String host, int portNumber) throws IOException {
         Socket sock;
         sock = new Socket(host, portNumber);
         if (sock.isConnected())
@@ -77,9 +78,9 @@ public class ClientListener extends Thread {
             //Start input and output streams, and bind them to the socket
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            //Update loop TODO: These are both looping correctly and don't block. mainController is also sending the right byte array through, although stopping quickly.
+            //Update loop
             while(true) {
-                recieveScreenUpdate(in);
+                receiveScreenUpdate(in);
                 //sendScreenUpdate(out);
             }
 
@@ -109,23 +110,22 @@ public class ClientListener extends Thread {
     }
 
     /**
-     * A helper method for recieving updates from other clients. First reads the packet length and then if that is
-     * greater than zero, it will use the message to write to call the method to update the graphicscontext.
+     * A helper method for receiving updates from other clients. First reads the packet length and then if that is
+     * greater than zero, it will use the message to write to call the method to update the graphicsContext.
      * @param in Takes a DataInputStream to pull the packet from.
      * @throws IOException Might throw an IOException because it is pulling from a DataInputStream.
      */
-    public void recieveScreenUpdate(DataInputStream in) throws IOException {
+    private void receiveScreenUpdate(DataInputStream in) throws IOException {
 
-        if (in.available() > 0) { //TODO: No bytes are coming in so the contents of this if statement won't run.
+        if (in.available() > 0) {
             int messageLength = in.readInt(); //Gets the length of the incoming screen. This line blocks until an int (4 bytes) is read.
-            System.out.println("Message recieved with length: " + messageLength);
-
+            System.out.println("Message received with length: " + messageLength);
 
             //If the message is longer than 0 bytes, parse it and tell the mainController to write it to the GraphicsContext
             if (messageLength > 0) {
-                System.out.println("Beggining message processing...");
+                System.out.println("Beginning message processing...");
                 byte[] buffer = new byte[messageLength];
-                System.out.println("Recieving message array built.");
+                System.out.println("Receiving message array built.");
                 in.readNBytes(buffer, 0, messageLength);
                 System.out.println("Message read.");
                 mc.setGraphicsContextFromByteArray(buffer);
