@@ -1,0 +1,12 @@
+language: java
+jdk: oraclejdk10
+notifications:
+  email: false
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: release

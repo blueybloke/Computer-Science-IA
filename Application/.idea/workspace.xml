@@ -2,53 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Refactored basically everything. Fixed around 60 warnings.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/allclasses-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/allclasses-noframe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/client/ClientListener.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/client/ClientListener.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/client/ClientManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/client/ClientManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/client/PaintGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/client/PaintGame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/client/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/client/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/client/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/client/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/client/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/client/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/controllers/mainController.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/controllers/mainController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/controllers/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/controllers/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/controllers/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/controllers/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/controllers/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/controllers/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/deprecated-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/ClientModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/server/ClientModel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/ServerListener.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/server/ServerListener.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/ServerManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/server/ServerManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/server/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/server/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/server/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/PaintGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/PaintGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/mainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerManager.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,10 +83,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/mainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="108">
               <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -139,10 +95,24 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/ServerListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
+            <state relative-caret-position="144">
               <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -163,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/ClientListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+            <state relative-caret-position="36">
+              <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -172,12 +142,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/ClientModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="126">
               <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2520#2521#0" expanded="true" />
-                <element signature="e#2546#2547#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/ClientManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="108">
               <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -198,7 +166,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/PaintGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
+            <state relative-caret-position="108">
               <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -271,6 +239,7 @@
         <option value="$PROJECT_DIR$/src/client/PaintGame.java" />
         <option value="$PROJECT_DIR$/src/server/ServerListener.java" />
         <option value="$PROJECT_DIR$/src/controllers/mainController.java" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -281,11 +250,10 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="15" />
-    <option name="y" value="35" />
-    <option name="width" value="1336" />
-    <option name="height" value="650" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1366" />
+    <option name="height" value="675" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -299,6 +267,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -327,13 +296,18 @@
               <item name="Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,7 +329,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -577,6 +551,8 @@
       <workItem from="1548163791980" duration="3084000" />
       <workItem from="1548237085448" duration="17917000" />
       <workItem from="1548418400287" duration="4714000" />
+      <workItem from="1548425518686" duration="480000" />
+      <workItem from="1548426581213" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored project structure and created a JavaFX template project inside a new Application project folder.">
       <created>1543220781800</created>
@@ -659,7 +635,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102866000" />
+    <option name="totallyTimeSpent" value="103478000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,16 +647,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="675" extended-state="6" />
+    <frame x="0" y="23" width="1366" height="675" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Learn" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6703755" visible="true" weight="0.22432025" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6703755" visible="true" weight="0.23036253" />
       <window_info id="Structure" order="4" weight="0.25" />
       <window_info id="Favorites" order="5" weight="0.32930514" />
-      <window_info anchor="bottom" id="Dependency Viewer" sideWeight="0.4992272" weight="0.3297491" />
       <window_info anchor="bottom" x="646" y="338" width="445" height="260" id="Terminal" order="0" weight="0.516129" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
@@ -699,6 +674,7 @@
       <window_info anchor="bottom" id="Network" order="15" weight="0.32931036" />
       <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" x="21" y="180" width="1324" height="357" id="Run" order="17" sideWeight="0.5007728" side_tool="true" visible="true" weight="0.36363637" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="18" sideWeight="0.4992272" weight="0.3297491" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32930514" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
@@ -812,13 +788,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/NetworkManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/GameState.java" />
     <entry file="file://$PROJECT_DIR$/src/helpers/Manager.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -965,21 +935,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/loginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/login.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/loginController.java" />
+    <entry file="file://$PROJECT_DIR$/src/views/login.fxml" />
     <entry file="file://$PROJECT_DIR$/docs/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -991,6 +948,26 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/mainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/ServerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -998,21 +975,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ClientListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/ClientModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="126">
           <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2520#2521#0" expanded="true" />
-            <element signature="e#2546#2547#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/ClientManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="108">
           <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1022,7 +1004,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/PaintGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
+        <state relative-caret-position="108">
           <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1030,30 +1012,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ClientListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/build.sh">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/ServerListener.java">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/mainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="198">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>
