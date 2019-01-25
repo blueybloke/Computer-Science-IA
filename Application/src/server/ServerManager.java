@@ -1,7 +1,10 @@
 package server;
 
-
-public class ServerManager extends Thread {
+/**
+ * A manager class that is used to run the server-side logic
+ * and start the serverListener.
+ */
+public class ServerManager {
 
     // Variables
     private final Thread serverListener;

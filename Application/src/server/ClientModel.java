@@ -3,9 +3,14 @@ package server;
 import java.io.*;
 import java.net.Socket;
 
-@SuppressWarnings("InfiniteLoopStatement")
-class ClientModel extends Thread {
+/**
+ * A model used to represent a single client.
+ * Handles taking data from the client it represents
+ * and giving it to the server to forward to other clients.
+ */
+public class ClientModel extends Thread {
 
+    //Variables to hold the DataStreams
     private DataInputStream in;
     private DataOutputStream out;
 
@@ -30,6 +35,7 @@ class ClientModel extends Thread {
         this.start();
     }
 
+    //This will run on a separate thread and is used to redirect data between clients.
     @Override
     public void run() {
 
@@ -63,6 +69,11 @@ class ClientModel extends Thread {
 
     }
 
+    /**
+     * A getter method for the DataOutputStream,
+     * used by the ServerListener.
+     * @return
+     */
     public DataOutputStream getOut() {
         return out;
     }

@@ -6,7 +6,11 @@ import javafx.fxml.FXMLLoader;
 import java.io.*;
 import java.net.Socket;
 
-@SuppressWarnings("InfiniteLoopStatement")
+/**
+ * The networking component of the client-side.
+ * This runs on a separate thread and manages sending
+ * and receiving data from the server, as well as connecting.
+ */
 public class ClientListener extends Thread {
 
     private static DataOutputStream out;

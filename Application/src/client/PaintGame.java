@@ -8,7 +8,8 @@ import server.ServerManager;
 import java.util.List;
 
 /**
- * Entry point of the application. Begins the application and opens the server browser.
+ * Entry point of the application.
+ * Begins the application with the passed CLI args.
  */
 public class PaintGame extends Application {
 
@@ -96,6 +97,10 @@ public class PaintGame extends Application {
         }
     }
 
+    /**
+     * Main method for the application.
+     * @param args Program arguments.
+     */
     public static void main(String[] args) {
         launch(args);
     }

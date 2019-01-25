@@ -9,16 +9,17 @@ import java.io.IOException;
 
 /**
  * A class to define the main logic for the client side.
- * Can be used to add functionality.
+ * Can be used to add extra functionality/Client-side logic.
  */
-class ClientManager extends Thread {
+public class ClientManager extends Thread {
 
     //Initialization related variables
     private Thread clientListener;
     private FXMLLoader loader;
 
     /**
-     * Create a new ClientManager on the localhost with the default port. Used when creating a new server.
+     * Create a new ClientManager on the localhost
+     * with the default port. Used when creating a new server.
      */
     public ClientManager() throws IOException {
         Stage primaryStage = PaintGame.getPStage();
