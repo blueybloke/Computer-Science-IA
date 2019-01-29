@@ -13,6 +13,14 @@ import java.util.List;
  */
 public class PaintGame extends Application {
 
+    /**
+     * A setter for the primary stage.
+     * @param pStage Takes a stage object.
+     */
+    public static void setpStage(Stage pStage) {
+        PaintGame.pStage = pStage;
+    }
+
     private static Stage pStage;
 
     /**

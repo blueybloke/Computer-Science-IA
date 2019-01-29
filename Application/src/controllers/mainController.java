@@ -2,6 +2,7 @@ package controllers;
 
 import client.ClientListener;
 
+import client.PaintGame;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -14,10 +15,13 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.DirectoryChooser;
+
 import javax.imageio.ImageIO;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -132,22 +136,35 @@ public class mainController implements Initializable {
         graphicsContext.drawImage(img, 0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
-    public void canvasMouseDragged(MouseEvent mouseEvent) {
-    }
-
-    public void canvasEntered(MouseEvent mouseEvent) {
-    }
-
-    public void canvasMouseReleased(MouseEvent mouseEvent) {
-    }
-
-    public void canvasExited(MouseEvent mouseEvent) {
-    }
-
+    /**
+     * This is a method intended to be used to save the canvas to an image.
+     * While I'm pretty sure the code itself should work, due to an issue in
+     * OSX High Sierra, this method will not work on High Sierra systems.
+     * See https://stackoverflow.com/questions/46999695/class-fifindersyncextensionhost-is-implemented-in-both-warning-in-xcode-si
+     * for more details. Marked as deprecated for time being.
+     * @param actionEvent Event handler
+     */
+    @Deprecated
     public void onSave(ActionEvent actionEvent) {
+        //Take a canvas snapshot and create a DirectoryChooser
+        Image saveImage = graphicsContext.getCanvas().snapshot(null, null);
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("Save whiteboard image to file...");
+        chooser.setInitialDirectory(new File("/Users/"));
+        File dir = chooser.showDialog(PaintGame.getPStage());
+        try {
+            //This line will throw an exception on OSX High Sierra hosts due to a bug in the OS.
+            ImageIO.write(SwingFXUtils.fromFXImage(saveImage, null), "png", dir);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * This method quits the application using the dropdown option.
+     * @param actionEvent Event handler
+     */
     public void onQuit(ActionEvent actionEvent) {
-        Platform.exit();
+        System.exit(0);
     }
 }

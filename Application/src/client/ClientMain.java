@@ -1,0 +1,29 @@
+package client;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import server.ServerManager;
+
+import java.io.IOException;
+
+public class ClientMain extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        //Set some variables
+        PaintGame.setpStage(primaryStage);
+        ClientManager clientManager;
+
+        try {
+            //Start the Client
+            clientManager = new ClientManager();
+            clientManager.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
