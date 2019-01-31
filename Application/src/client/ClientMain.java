@@ -2,7 +2,6 @@ package client;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import server.ServerManager;
 
 import java.io.IOException;
 
@@ -15,7 +14,7 @@ public class ClientMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         //Set some variables
-        PaintGame.setpStage(primaryStage);
+        PaintGame.setPStage(primaryStage);
         ClientManager clientManager;
 
         try {

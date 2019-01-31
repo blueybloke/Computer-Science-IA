@@ -17,7 +17,7 @@ public class PaintGame extends Application {
      * A setter for the primary stage.
      * @param pStage Takes a stage object.
      */
-    public static void setpStage(Stage pStage) {
+    public static void setPStage(Stage pStage) {
         PaintGame.pStage = pStage;
     }
 

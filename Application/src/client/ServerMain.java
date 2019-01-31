@@ -15,7 +15,7 @@ public class ServerMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         //Set some variables
-        PaintGame.setpStage(primaryStage);
+        PaintGame.setPStage(primaryStage);
         ServerManager serverManager;
         ClientManager clientManager;
 

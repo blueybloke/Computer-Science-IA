@@ -41,8 +41,9 @@ public class ServerListener extends Thread {
             listenerSocket.setSoTimeout(0); //Sets connection timeout to infinity
             System.out.println("Created server socket on port " + listenerSocket.getLocalPort());
 
-            //This will loop allowing multiple clients to connect, and then add their out streams to the master list.
-            //noinspection InfiniteLoopStatement
+            //This will loop allowing multiple clients to connect,
+            //and then add their out streams to the master list.
+            //noinspection InfiniteLoopStatement (THIS LINE USED BY IDE)
             while (true) {
                 outputs.add(new ClientModel(listenerSocket.accept()).getOut());
                 System.out.println("Added a new client to list. New length: "+outputs.size());

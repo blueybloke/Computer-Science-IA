@@ -80,10 +80,11 @@ public class ClientListener extends Thread {
             //Start input and output streams, and bind them to the socket
             DataInputStream in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
+
             //Update loop
+            //noinspection InfiniteLoopStatement (THIS LINE USED BY IDE)
             while(true) {
                 receiveScreenUpdate(in);
-                //sendScreenUpdate(out);
             }
 
 
