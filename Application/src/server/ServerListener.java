@@ -1,6 +1,7 @@
 package server;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.HashSet;
 
@@ -30,7 +31,7 @@ public class ServerListener extends Thread {
     @Override
     public void run() {
         //Catch IOExceptions
-        try (var listenerSocket = new ServerSocket(SERVER_PORT)) {
+        try (var listenerSocket = new ServerSocket(SERVER_PORT, 2, InetAddress.getByName(null))) {
 
             // Displaying the thread that is running
             System.out.println("Server Thread " +

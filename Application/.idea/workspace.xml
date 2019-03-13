@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Client" />
+      <artifact name="Server" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Refactored basically everything. Fixed around 60 warnings.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/PaintGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/PaintGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ServerMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerListener.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -85,94 +87,15 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/PaintGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#459#460#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/main.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
-              <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/mainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="989">
-              <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/ServerListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/ClientListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/ServerManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/ClientModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="15" selection-start-column="15" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Singleton" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JavaFXApplication" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -186,6 +109,7 @@
       <find>getIn(</find>
       <find>List&lt;&gt;</find>
       <find>getter</find>
+      <find>localhost</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -239,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/client/PaintGame.java" />
         <option value="$PROJECT_DIR$/src/server/ServerListener.java" />
         <option value="$PROJECT_DIR$/src/client/ClientListener.java" />
+        <option value="$PROJECT_DIR$/src/server/DiscoveryThread.java" />
       </list>
     </option>
   </component>
@@ -249,11 +174,11 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="190" />
-    <option name="y" value="23" />
-    <option name="width" value="1258" />
-    <option name="height" value="664" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="15" />
+    <option name="y" value="35" />
+    <option name="width" value="1336" />
+    <option name="height" value="644" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -266,8 +191,47 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -309,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -531,6 +495,18 @@
       <workItem from="1548775507083" duration="3212000" />
       <workItem from="1548793961513" duration="4784000" />
       <workItem from="1548969625328" duration="218000" />
+      <workItem from="1548972194143" duration="361000" />
+      <workItem from="1549022470444" duration="1064000" />
+      <workItem from="1549365199995" duration="886000" />
+      <workItem from="1549827790668" duration="738000" />
+      <workItem from="1549835062154" duration="547000" />
+      <workItem from="1550576284760" duration="524000" />
+      <workItem from="1550692949830" duration="133000" />
+      <workItem from="1550755973456" duration="138000" />
+      <workItem from="1551643318033" duration="565000" />
+      <workItem from="1551686175824" duration="819000" />
+      <workItem from="1551863054945" duration="395000" />
+      <workItem from="1552403387025" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored project structure and created a JavaFX template project inside a new Application project folder.">
       <created>1543220781800</created>
@@ -613,7 +589,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111141000" />
+    <option name="totallyTimeSpent" value="117606000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -625,12 +601,51 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1328" extended-state="6" />
+    <frame x="15" y="35" width="1336" height="644" extended-state="0" />
     <layout>
       <window_info id="Learn" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6703755" visible="true" weight="0.1330421" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6703755" visible="true" weight="0.26738796" />
+      <window_info id="Structure" order="4" weight="0.25" />
+      <window_info id="Favorites" order="5" weight="0.32930514" />
+      <window_info anchor="bottom" x="646" y="338" width="445" height="260" id="Terminal" order="0" weight="0.5147059" />
+      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.3256768" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.40172413" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32731748" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Problems" order="9" />
+      <window_info anchor="bottom" id="Changes" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" weight="0.32590052" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49834162" weight="0.32374102" />
+      <window_info anchor="bottom" x="15" y="57" width="651" height="628" id="Inspection Results" order="14" sideWeight="0.49848944" type="WINDOWED" weight="0.37965617" />
+      <window_info anchor="bottom" id="Network" order="15" weight="0.32931036" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" x="21" y="180" width="1324" height="357" id="Run" order="17" sideWeight="0.5007728" side_tool="true" weight="0.3584559" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="18" sideWeight="0.4992272" weight="0.3297491" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32930514" />
+      <window_info anchor="right" id="Palette&#9;" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32930514" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32930514" />
+      <window_info anchor="right" id="Version Control" order="9" sideWeight="0.49827588" weight="0.53018266" />
+      <window_info anchor="right" x="0" y="0" width="590" height="1144" id="Documentation" order="10" sideWeight="0.5017241" side_tool="true" weight="0.32930514" />
+      <window_info anchor="right" id="Maven" order="11" weight="0.32854986" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Learn" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6703755" visible="true" weight="0.2560423" />
       <window_info id="Structure" order="4" weight="0.25" />
       <window_info id="Favorites" order="5" weight="0.32930514" />
       <window_info anchor="bottom" x="646" y="338" width="445" height="260" id="Terminal" order="0" weight="0.5159967" />
@@ -646,11 +661,11 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32590052" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49834162" weight="0.32517484" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49834162" weight="0.32374102" />
       <window_info anchor="bottom" x="15" y="57" width="651" height="628" id="Inspection Results" order="14" sideWeight="0.49848944" type="WINDOWED" weight="0.37965617" />
       <window_info anchor="bottom" id="Network" order="15" weight="0.32931036" />
       <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
-      <window_info anchor="bottom" x="21" y="180" width="1324" height="357" id="Run" order="17" sideWeight="0.5007728" side_tool="true" weight="0.36363637" />
+      <window_info anchor="bottom" x="21" y="180" width="1324" height="357" id="Run" order="17" sideWeight="0.5007728" side_tool="true" weight="0.36330935" />
       <window_info anchor="bottom" id="Dependency Viewer" order="18" sideWeight="0.4992272" weight="0.3297491" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32930514" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
@@ -664,7 +679,7 @@
       <window_info anchor="right" id="Version Control" order="9" sideWeight="0.49827588" weight="0.5302115" />
       <window_info anchor="right" x="0" y="0" width="590" height="1144" id="Documentation" order="10" sideWeight="0.5017241" side_tool="true" weight="0.32930514" />
       <window_info anchor="right" id="Maven" order="11" weight="0.32854986" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -855,13 +870,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/server/ClientListener.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/server/ClientListener.html" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/io/DataInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -905,25 +914,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/ConsoleManager.java" />
-    <entry file="file://$PROJECT_DIR$/docs/server/GameState.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/server/GameState.html" />
     <entry file="file://$PROJECT_DIR$/src/controllers/loginController.java" />
     <entry file="file://$PROJECT_DIR$/src/views/login.fxml" />
-    <entry file="file://$PROJECT_DIR$/docs/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ClientMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/stylesheet.css" />
     <entry file="file://$PROJECT_DIR$/src/client/ServerMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -934,63 +928,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/jquery/jszip/dist/jszip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="1212" column="32" selection-start-line="1212" selection-start-column="32" selection-end-line="1212" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ClientManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/PaintGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/ServerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ClientListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/jquery/jszip/dist/jszip.js" />
     <entry file="file://$PROJECT_DIR$/src/server/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -998,10 +936,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/ClientModel.java">
+    <entry file="file://$PROJECT_DIR$/src/client/ClientManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        <state relative-caret-position="315">
+          <caret line="20" column="50" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/ServerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1010,8 +958,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/mainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="989">
-          <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
+        <state relative-caret-position="467">
+          <caret line="170" selection-start-line="170" selection-end-line="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/PaintGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/DiscoveryThread.java" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/Server/Application.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1008" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ClientListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ClientMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/ClientModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
