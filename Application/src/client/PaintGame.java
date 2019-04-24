@@ -73,10 +73,10 @@ public class PaintGame extends Application {
                     clientManager.start();
                     break;
                 }
-
-                case "ClientMode": try { //Try to start as a client with a custom port.
+				// Used to connect to a specific client. You will need to know the client's ip.
+                case "ClientMode": try { //Try to start as a client with a custom host ip.
                     //Start the Client
-                    clientManager = new ClientManager("localhost", Integer.parseInt(args.get(1)));
+                    clientManager = new ClientManager(args.get(1), 45665);
                     clientManager.start();
                     break;
                 } catch (IndexOutOfBoundsException e) { //Try to start as a client with default port

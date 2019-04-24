@@ -5,6 +5,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The entry point for the client version of the application.
+ */
 public class ClientMain extends Application {
 
     public static void main(String[] args) {

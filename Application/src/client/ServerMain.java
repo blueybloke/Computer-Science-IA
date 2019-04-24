@@ -6,6 +6,9 @@ import server.ServerManager;
 
 import java.io.IOException;
 
+/**
+ * Entry point for server version of the application.
+ */
 public class ServerMain extends Application {
 
     public static void main(String[] args) {
